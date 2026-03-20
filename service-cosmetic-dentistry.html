@@ -48,7 +48,7 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainemenu begin -->
                                 <ul id="mainmenu">
-                                    <li><a class="menu-item" href="index-5.html">Home</a>
+                                    <li><a class="menu-item" href="index.html">Home</a>
                                        
                                     </li>
                                     <li><a class="menu-item" href="services.html">Services</a>
@@ -78,7 +78,9 @@
                             </div>
                             <div class="de-flex-col">
                                 <div class="menu_side_area">
-                                    <a href="booking.html" class="btn-main fx-slide"><span>Book Appointment</span></a>
+                                    <button type="button" class="btn-main fx-slide" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+Book Appointment
+</button>
                                     <span id="menu-btn"></span>
                                 </div>
 
@@ -446,6 +448,96 @@
         <!-- footer end -->
     </div>
 
+        <div
+      class="modal fade"
+      id="appointmentModal"
+      tabindex="-1"
+      aria-labelledby="appointmentModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-1 p-4">
+          <div class="modal-header">
+            <h5 class="modal-title" id="appointmentModalLabel">
+              Request a Dental Appointment
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form method="post" action="contact.php">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="full_name"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="tel"
+                  class="form-control"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  name="appointment_date"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <select class="form-control" name="service" required>
+                  <option value="">Select Service</option>
+                  <option>General Checkup</option>
+                  <option>Teeth Cleaning</option>
+                  <option>Tooth Extraction</option>
+                  <option>Dental Implants</option>
+                  <option>Cosmetic Dentistry</option>
+                  <option>Emergency Care</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  name="notes"
+                  placeholder="Additional Notes (optional)"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-dark w-100">
+                Request Appointment
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- overlay content begin -->
     <div id="extra-wrap" class="text-light">
         <div id="btn-close">
@@ -498,6 +590,14 @@
     <script src="js/custom-swiper-1.js"></script>
     <script src="js/custom-marquee.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var myModal = new bootstrap.Modal(document.getElementById('appointmentModal'));
+    myModal.show();
+  }, 4000);
+});
+</script>
 </body>
 
 </html>
